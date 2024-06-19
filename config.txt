@@ -1,0 +1,17 @@
+php.ini
+max_file_uploads=500
+post_max_size=40M
+upload_max_filesize=1000M
+post_max_size = 1000M;
+
+
+// Display the key/value pairs
+for (var pair of formData.entries()) {
+console.log(pair[0]+ ', ' + pair[1]); 
+}
+
+data-bs-toggle="modal" data-bs-target="#imageModal"
+$('img[data-bs-toggle="modal"]').click(function() {
+    var src = $(this).attr('src');
+    $('#modalImage').attr('src', src);
+});
