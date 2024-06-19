@@ -321,11 +321,11 @@ function delete_event(id) {
     },
   });
 }
-function edit_event(id, event_title, event_category) {
+function edit_event(id) {
   $.ajax({
     type: "POST",
     url: "../view/md_edit_event.php",
-    data: { id, event_title, event_category },
+    data: { id },
     success: function (res) {
       $(".modal_show").html(res);
       $("#md_edit_event").modal("show");
@@ -418,6 +418,17 @@ function delete_user(id) {
       } else {
         alert(response.message);
       }
+    },
+  });
+}
+function edit_user(id) {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_edit_user.php",
+    data: { id },
+    success: function (res) {
+      $(".modal_show").html(res);
+      $("#md_edit_user").modal("show");
     },
   });
 }
