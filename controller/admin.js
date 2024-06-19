@@ -406,3 +406,18 @@ function delete_department(id) {
     },
   });
 }
+function delete_user(id) {
+  $.ajax({
+    type: "POST",
+    url: "../model/delete_user.php",
+    data: { id },
+    success: function (res) {
+      let response = JSON.parse(res);
+      if (response.status === "success") {
+        manageUser();
+      } else {
+        alert(response.message);
+      }
+    },
+  });
+}

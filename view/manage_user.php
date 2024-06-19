@@ -42,8 +42,8 @@ $result = mysqli_query($conn, $sql);
                         <td><?= htmlspecialchars($row['password']) ?></td>
                         <td><?= htmlspecialchars($row['department']) ?></td>
                         <td class="text-center">
-                            <button class="btn btn-warning " onclick="if(confirm('Do you want to delete book!!')) { delete_tel('<?= $row['id'] ?>'); } return false;"><i class="fa-solid fa-edit"></i></button>
-                            <button class="btn btn-danger " onclick="if(confirm('Do you want to delete book!!')) { delete_tel('<?= $row['id'] ?>'); } return false;"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-warning " onclick="edit_user('<?= $row['id'] ?>')"><i class="fa-solid fa-edit"></i></button>
+                            <button class="btn btn-danger " onclick="if(confirm('Are you sure!')) { delete_user('<?= $row['id'] ?>'); } return false;"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
             <?php

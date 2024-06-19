@@ -57,37 +57,37 @@ $result = mysqli_query($conn, $sql);
                         </div>
                         <div class="col-md-9">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="รวมเว็บไซต์บริษัท" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="website" checked>
                                 <label class="form-check-label" for="companyWebsite">
                                     รวมเว็บไซต์บริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="วิดิโอแนะนำ" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="vdeo" checked>
                                 <label class="form-check-label" for="introVideo">
                                     วิดิโอแนะนำ
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="กิจกรรมของบริษัท" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="event" checked>
                                 <label class="form-check-label" for="companyActivities">
                                     กิจกรรมของบริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="เบอร์โทรภายในบริษัท" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="telephone" checked>
                                 <label class="form-check-label" for="internalPhone">
                                     เบอร์โทรภายในบริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="วันหยุด" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="holiday" checked>
                                 <label class="form-check-label" for="holidays">
                                     วันหยุด
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="ระบบสมาชิก" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="member" checked>
                                 <label class="form-check-label" for="membershipSystem">
                                     ระบบสมาชิก
                                 </label>
@@ -123,7 +123,7 @@ $result = mysqli_query($conn, $sql);
                         $("#md_add_user").modal('hide');
                         manageUser()
                     } else {
-                        alert("Failed to add telephone!")
+                        alert(res)
                     }
                 }
             });
