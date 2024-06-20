@@ -77,7 +77,7 @@ $user_permissions = explode(',', $row['permission']); // แยกสตริ�
                             foreach ($permissions as $key => $label) {
                                 $checked = in_array($key, $user_permissions) ? 'checked' : ''; // ตรวจสอบว่าควรจะมีการเลือกหรือไม่
                                 echo '<div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="permission[]" value="' . $key . '" ' . $checked . '>
+                        <input class="form-check-input" style="transform: scale(1.5);" type="checkbox" name="permission[]" value="' . $key . '" ' . $checked . '>
                         <label class="form-check-label" for="' . $key . '">' . $label . '</label>
                       </div>';
                             }

@@ -57,37 +57,37 @@ $result = mysqli_query($conn, $sql);
                         </div>
                         <div class="col-md-9">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="website" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="website" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="companyWebsite">
                                     รวมเว็บไซต์บริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="vdeo" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="vdeo" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="introVideo">
                                     วิดิโอแนะนำ
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="event" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="event" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="companyActivities">
                                     กิจกรรมของบริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="telephone" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="telephone" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="internalPhone">
                                     เบอร์โทรภายในบริษัท
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="holiday" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="holiday" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="holidays">
                                     วันหยุด
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="member" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="member" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="membershipSystem">
                                     ระบบสมาชิก
                                 </label>

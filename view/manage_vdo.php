@@ -23,10 +23,10 @@ $result = mysqli_query($conn, $sql);
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">NO.</th>
-                <th scope="col">Vdo Title</th>
-                <th scope="col" class="text-center">Category</th>
-                <th scope="col" class="text-center">Actions</th>
+                <th scope="col">ลำดับ</th>
+                <th scope="col">หัวข้อวิดิโอ</th>
+                <th scope="col" class="text-center">หมวดหมู่</th>
+                <th scope="col" class="text-center">แก้ไข / ลบ</th>
             </tr>
         </thead>
         <tbody>

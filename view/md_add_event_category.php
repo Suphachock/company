@@ -16,7 +16,7 @@
                     <div class="col-6">
                         <input type="text" class="form-control event_category" required>
                     </div>
-                    <div class="col text-end px-2">
+                    <div class="col text-center p-0">
                         <button class="btn btn-success" onclick="add_event_category()"><i class="fa-solid fa-square-check"></i></button>
                     </div>
                 </div>

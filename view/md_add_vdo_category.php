@@ -13,10 +13,10 @@
                     <div class="col-4">
                         <label class="form-label">เพิ่มหมวดหมู่วิดิโอ</label>
                     </div>
-                    <div class="col-6">
+                    <div class="col-auto">
                         <input type="text" class="vdo_category" class="form-control" required>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="col-2 text-end p-0">
                         <button class="btn btn-success" onclick="add_vdo_category()"><i class="fa-solid fa-square-check"></i></button>
                     </div>
                 </div>
