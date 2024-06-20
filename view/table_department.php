@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
                     <td><?= htmlspecialchars($counter) ?></td>
                     <td><?= htmlspecialchars($row['department']) ?></td>
                     <td class="text-end">
-                        <button class="btn btn-warning " onclick=""><i class="fa-solid fa-edit"></i></button>
+                        <button class="btn btn-warning " onclick="edit_department('<?= $row['id'] ?>')"><i class="fa-solid fa-edit"></i></button>
                         <button class="btn btn-danger " onclick="if(confirm('Are you Sure!!')) { delete_department('<?= $row['id'] ?>'); } return false;"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>

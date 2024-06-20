@@ -182,6 +182,17 @@ function edit_vdo(id) {
     },
   });
 }
+function edit_vdo_category(id) {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_edit_vdo_category.php",
+    data: { id },
+    success: function (res) {
+      $(".modal_edit_vdeo_category").html(res);
+      $("#md_edit_vdo_category").modal("show");
+    },
+  });
+}
 // ----------------------- ส่วนของการจัดการวันหยุดบริษัท -------------------------
 function manageHoliday() {
   $.ajax({
@@ -332,6 +343,17 @@ function edit_event(id) {
     },
   });
 }
+function edit_event_category(id) {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_edit_event_category.php",
+    data: { id },
+    success: function (res) {
+      $(".modal_edit_event_category").html(res);
+      $("#md_edit_event_category").modal("show");
+    },
+  });
+}
 // ----------------------- ส่วนของการจัดการสมาชิก -------------------------
 function manageUser() {
   $.ajax({
@@ -429,6 +451,17 @@ function edit_user(id) {
     success: function (res) {
       $(".modal_show").html(res);
       $("#md_edit_user").modal("show");
+    },
+  });
+}
+function edit_department(id) {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_edit_department.php",
+    data: { id },
+    success: function (res) {
+      $(".modal_edit_dept").html(res);
+      $("#md_edit_department").modal("show");
     },
   });
 }

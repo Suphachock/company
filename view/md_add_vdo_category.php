@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-
+<div class="modal_edit_vdeo_category"></div>
 <script>
     $(document).ready(function() {
         show_table_vdo_category()

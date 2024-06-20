@@ -5,7 +5,6 @@
                 <h5 class="modal-title">หมวดหมู่อีเว้นท์</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body">
                 <div class="row mx-1 mt-1 align-items-center event_category_data">
                 </div>
@@ -25,7 +24,7 @@
         </div>
     </div>
 </div>
-
+<div class="modal_edit_event_category"></div>
 <script>
     $(document).ready(function() {
         show_table_event_category()

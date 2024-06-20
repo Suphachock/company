@@ -25,6 +25,7 @@
         </div>
     </div>
 </div>
+<div class="modal_edit_dept"></div>
 
 <script>
     $(document).ready(function() {
