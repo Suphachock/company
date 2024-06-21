@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $sql);
                                 <?php
                                 if ($result) {
                                     foreach ($result as $row) { ?>
-                                        <option><?= $row['vdo_category'] ?></option>
+                                        <option value="<?= $row['id'] ?>"><?= $row['vdo_category'] ?></option>
                                 <?php  }
                                 } ?>
                             </select>

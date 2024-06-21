@@ -3,7 +3,7 @@ include_once "../conn.php";
 $id = $_POST['id'];
 $sql = "SELECT * FROM vdo WHERE id = $id";
 $result = mysqli_query($conn, $sql);
-$categories_sql = "SELECT * FROM vdo_category"; // Assume you have a categories table
+$categories_sql = "SELECT * FROM vdo_category";
 $categories_result = mysqli_query($conn, $categories_sql);
 
 if ($result && $categories_result) {
@@ -19,8 +19,9 @@ if ($result && $categories_result) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="edit_vdo" enctype="multipart/form-data">
-                <input type="hidden" name="vdo_id" value="<?= $row['id'] ?>"></input>
+                <input type="hidden" name="vdo_id" value="<?= $row['id'] ?>">
                 <div class="modal-body">
+                    <!-- Video title input -->
                     <div class="row align-items-center mb-3">
                         <div class="col-md-4">
                             <label for="vdo_title" class="form-label">หัวข้อวิดิโอ</label>
@@ -29,6 +30,8 @@ if ($result && $categories_result) {
                             <input type="text" name="vdo_title" class="form-control" value="<?= htmlspecialchars($row['vdo_title']) ?>" required>
                         </div>
                     </div>
+
+                    <!-- Video category selection -->
                     <div class="row align-items-center mb-3">
                         <div class="col-md-4">
                             <label for="vdo_category" class="form-label">หมวดหมู่วิดิโอ</label>
@@ -36,33 +39,54 @@ if ($result && $categories_result) {
                         <div class="col-md-8">
                             <select name="vdo_category" class="form-select" required>
                                 <?php foreach ($categories as $category) : ?>
-                                    <option <?= $category['vdo_category'] == $row['vdo_category'] ? 'selected' : '' ?>>
+                                    <option value="<?= $category['id'] ?>" <?= $category['id'] == $row['vdo_category'] ? 'selected' : '' ?>>
                                         <?= htmlspecialchars($category['vdo_category']) ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
+                    <!-- Video file input -->
                     <div class="row align-items-center mb-3">
                         <div class="col-md-4">
-                            <label for="vdo_path" class="form-label">ไฟล์วิดิโอ (Mp4)</label>
+                            <label for="vdo_path" class="form-label">อัพไฟล์วิดิโอ (Mp4)</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="file" name="vdo_path" class="form-control" accept="video/mp4,video/x-m4v,video/*">
+                            <input type="file" name="vdo_path[]" class="form-control" accept="video/mp4,video/x-m4v,video/*">
                         </div>
                     </div>
+                    <!-- Video filename and card display section -->
+                    <?php if (!empty($row['vdo_path'])) : ?>
+                        <div class="mb-3">
+                            <label for="vdo_current" class="form-label">ไฟล์วิดิโอปัจจุบัน:</label>
+                            <?php
+                            // Split the video paths using a comma as a delimiter
+                            $videos = explode(',', $row['vdo_path']);
+                            foreach ($videos as $video) : // Loop through each video
+                            ?>
+                                <div class="card mb-2">
+                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                        <span><?= htmlspecialchars(basename(trim($video))) ?></span> <!-- Display the video name -->
+                                        <button type="button" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i> ลบไฟล์</button>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
                 </div>
+
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">
                         บันทึก
-                        <div class="spinner-grow spinner-grow-sm text-light loading" role="status" style="display: none;">
-                        </div>
+                        <div class="spinner-grow spinner-grow-sm text-light loading" role="status" style="display: none;"></div>
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 <script>
     $(document).ready(function() {

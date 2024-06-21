@@ -1,6 +1,6 @@
 <?php
 include_once "../conn.php";
-$sql = "SELECT * FROM vdo";
+$sql = "SELECT vdo.*,vc.vdo_category vdo_category_name FROM vdo JOIN vdo_category vc ON vdo.vdo_category = vc.id";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="row">
@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $sql);
                     <tr>
                         <td><?= htmlspecialchars($counter) ?></td>
                         <td><?= htmlspecialchars($row['vdo_title']) ?></td>
-                        <td class="text-center"><?= htmlspecialchars($row['vdo_category']) ?></td>
+                        <td class="text-center"><?= htmlspecialchars($row['vdo_category_name']) ?></td>
                         <td class="text-center">
                             <button class="btn btn-warning " onclick="edit_vdo('<?= $row['id'] ?>')"><i class="fa-solid fa-pen-to-square"></i></i></button>
                             <button class="btn btn-danger " onclick="if(confirm('Are You Sure!')) { delete_vdo('<?= $row['id'] ?>','<?= $row['vdo_path'] ?>'); } return false;"><i class="fa-solid fa-trash"></i></button>
