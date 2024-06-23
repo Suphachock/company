@@ -15,7 +15,6 @@ $categories_sql = "SELECT * FROM event_category";
 $categories_result = $conn->query($categories_sql);
 $categories = $categories_result->fetch_all(MYSQLI_ASSOC);
 
-// ประมวลผลผลลัพธ์ที่ดึงมาได้
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
 } else {

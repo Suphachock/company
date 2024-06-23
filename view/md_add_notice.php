@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">เพิ่มข่าวสาร</h5>
+                <h5 class="modal-title">เพิ่มข้อมูล</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="add_notice_form" enctype="multipart/form-data">
@@ -37,7 +37,6 @@
                         </div>
                         <div class="col-md-9">
                             <input type="file" name="notice_image[]" class="form-control" accept="image/*" onchange="previewImage(event)" multiple>
-                            <img id="image_preview" class="mt-3" src="" alt="Image preview" style="max-width: 100px; display: none;">
                         </div>
                     </div>
                 </div>
@@ -76,28 +75,4 @@
             });
         });
     });
-    function previewImage(event) {
-        const fileInput = event.target;
-        const file = fileInput.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-            const imagePreview = document.getElementById('image_preview');
-
-            // This function runs when the FileReader has finished loading the file
-            reader.onload = function(event) {
-                // Update the src attribute of the image preview
-                imagePreview.src = event.target.result;
-                // Make the image preview visible
-                imagePreview.style.display = 'block';
-            };
-
-            // Read the file as a Data URL (base64 encoded string)
-            reader.readAsDataURL(file);
-        } else {
-            // If no file is selected, hide the image preview
-            document.getElementById('image_preview').style.display = 'none';
-            document.getElementById('image_preview').src = '';
-        }
-    }
 </script>

@@ -378,6 +378,29 @@ function edit_event_category(id) {
     },
   });
 }
+function delImage(button, id) {
+  alert("Are you sure?");
+  const hiddenImages = []; // เก็บ URL ของรูปที่ถูกปิด
+  const img = button.nextElementSibling;
+  hiddenImages.push(img.src); // เก็บ URL รูป
+  $(img).closest(".col-2").addClass("d-none"); // ใช้ d-none แทนการซ่อนรูปแบบธรรมดา
+  console.log(hiddenImages); // แสดง URL รูปที่ถูกเก็บในคอนโซล
+  $.ajax({
+    url: "../model/del_event_img.php",
+    type: "POST",
+    data: {
+      hiddenImages,
+      id,
+    },
+    success: function (res) {
+      let response = JSON.parse(res);
+      if (response.status === "success") {
+      } else {
+        alert(response.message);
+      }
+    },
+  });
+}
 
 // ----------------------- ส่วนของการจัดการสมาชิก -------------------------
 function manageUser() {
@@ -525,6 +548,18 @@ function delete_notice(id) {
       } else {
         alert(response.message);
       }
+    },
+  });
+}
+function edit_notice(id) {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_edit_notice.php",
+    data: { id },
+    dataType: "html",
+    success: function (res) {
+      $(".modal_show").html(res);
+      $("#md_edit_notice").modal("show");
     },
   });
 }

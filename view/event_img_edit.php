@@ -92,4 +92,5 @@ $current_page_images = array_slice($images, $start_from, $images_per_page);
             }
         });
     }
+
 </script>
