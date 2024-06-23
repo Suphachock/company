@@ -87,17 +87,16 @@ $conn->close();
 
 <script>
     $(document).ready(function() {
-        img_for_delete(1);
+        img_for_delete();
     });
 
-    function img_for_delete(page) {
+    function img_for_delete() {
         let event_id = <?= json_encode($event_id) ?>;
         $.ajax({
             type: "POST",
             url: "/TEST/view/event_img_edit.php",
             data: {
-                id: event_id,
-                page: page
+                id: event_id
             },
             dataType: "html",
             success: function(response) {

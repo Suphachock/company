@@ -2,7 +2,7 @@
 include_once "../conn.php";
 
 // กำหนดจำนวนรูปภาพต่อหน้า
-$images_per_page = 3;
+$images_per_page = 24;
 
 // รับค่า page จาก POST หรือกำหนดค่าเริ่มต้นเป็น 1
 $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
