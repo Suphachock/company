@@ -381,6 +381,8 @@ function edit_event_category(id) {
     },
   });
 }
+
+
 // ----------------------- ส่วนของการจัดการสมาชิก -------------------------
 function manageUser() {
   $.ajax({

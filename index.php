@@ -59,8 +59,8 @@
                         <a href="#" class="list-group-item list-group-item-action fs-4" onclick="getVDO()"><i class="fa-solid fa-film"></i> Video Guide</a>
                         <a href="#" class="list-group-item list-group-item-action fs-4" onclick="getEvent()"><i class="fa-solid fa-flag"></i> Events</a>
                         <a href="#" class="list-group-item list-group-item-action fs-4" onclick="getTel()"><i class="fa-solid fa-phone"></i> Telephone</a>
-                        <a href="http://10.10.10.237:41002/" target="_blank" class="list-group-item list-group-item-action fs-4"><i class="fa-solid fa-calendar-check"></i> จองห้องประชุม</a>
                         <a href="#" class="list-group-item list-group-item-action fs-4" onclick="getCalendar()"><i class="fa-regular fa-calendar"></i> วันหยุดบริษัท</a>
+                        <a href="http://10.10.10.237:41002/" target="_blank" class="list-group-item list-group-item-action fs-4"><i class="fa-solid fa-calendar-check"></i> จองห้องประชุม</a>
                         <a href="https://www.google.com/" target="_blank" class="list-group-item list-group-item-action fs-4"><i class="fa-brands fa-google"></i> GOOGLE</a>
                         <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="list-group-item list-group-item-action fs-4"><i class="fa-solid fa-envelope"></i> GMAIL</a>
                         <a href="https://drive.google.com/drive/home" target="_blank" class="list-group-item list-group-item-action fs-4"><i class="fa-brands fa-google-drive"></i> GOOGLE DRIVE</a>
