@@ -55,25 +55,7 @@ if ($result && $categories_result) {
                             <input type="file" name="vdo_path[]" class="form-control" accept="video/mp4,video/x-m4v,video/*">
                         </div>
                     </div>
-                    <!-- Video filename and card display section -->
-                    <?php if (!empty($row['vdo_path'])) : ?>
-                        <div class="mb-3">
-                            <label for="vdo_current" class="form-label">ไฟล์วิดิโอปัจจุบัน:</label>
-                            <?php
-                            // Split the video paths using a comma as a delimiter
-                            $videos = explode(',', $row['vdo_path']);
-                            foreach ($videos as $video) : // Loop through each video
-                            ?>
-                                <div class="card mb-2">
-                                    <div class="card-body d-flex justify-content-between align-items-center">
-                                        <span><?= htmlspecialchars(basename(trim($video))) ?></span> <!-- Display the video name -->
-                                        <button type="button" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i> ลบไฟล์</button>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-
+                    <div class="show_video_file"></div>
                 </div>
 
                 <div class="modal-footer">
@@ -90,6 +72,7 @@ if ($result && $categories_result) {
 
 <script>
     $(document).ready(function() {
+        show_video_file(<?= $id ?>);
         $('#edit_vdo').on('submit', function(event) {
             let formData = new FormData(this);
             event.preventDefault();

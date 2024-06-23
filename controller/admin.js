@@ -149,10 +149,11 @@ function delete_vdo(id, vdo_path) {
     url: "../model/delete_vdo.php",
     data: { id, vdo_path },
     success: function (res) {
-      if (res === "success") {
+      let response = JSON.parse(res);
+      if (response.status === "success") {
         manageVdo();
       } else {
-        alert("Failed to delete!");
+        alert(response.message);
       }
     },
   });
@@ -190,6 +191,32 @@ function edit_vdo_category(id) {
     success: function (res) {
       $(".modal_edit_vdeo_category").html(res);
       $("#md_edit_vdo_category").modal("show");
+    },
+  });
+}
+function delete_video_file(vdo_path, id) {
+  $.ajax({
+    type: "POST",
+    url: "../model/delete_video_file.php",
+    data: { vdo_path, id },
+    success: function (res) {
+      let response = JSON.parse(res);
+      if (response.status === "success") {
+        show_video_file(id);
+      } else {
+        alert(response.message);
+      }
+    },
+  });
+}
+function show_video_file(id) {
+  $.ajax({
+    type: "POST",
+    url: "/TEST/view/show_video_file.php",
+    data: { id },
+    dataType: "html",
+    success: function (res) {
+      $(".show_video_file").html(res);
     },
   });
 }
