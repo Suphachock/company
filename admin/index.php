@@ -39,6 +39,10 @@ $conn->close();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- JQuery Datepicker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -106,6 +110,9 @@ $conn->close();
         <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="list-group">
+                    <?php if (in_array('notice', $permissions)) : ?>
+                        <a href="#" class="list-group-item list-group-item-action fs-4" onclick="manageNotice()"><i class="fa-solid fa-bullhorn"></i> ข่าวสาร</a>
+                    <?php endif; ?>
                     <?php if (in_array('website', $permissions)) : ?>
                         <a href="#" class="list-group-item list-group-item-action fs-4" onclick="manageWeb()"><i class="fa-solid fa-globe"></i> รวมเว็บไซต์</a>
                     <?php endif; ?>

@@ -75,8 +75,9 @@
                         <marquee>***คำขวัญบริษัท*** :: ลดต้นทุน ลดค่าใช้จ่าย เป็นกำไรของบริษัท เป็นโบนัสของพนักงาน</marquee>
                     </div>
                     <div class="card-body body_content" style="overflow: auto; height: 80vh;">
-                        <div class="text-center fs-3">ประกาศจากทางแผนก....</div>
-                        <!-- Image commented out -->
+                        <div class="text-center fs-3 mb-3"><i class="fa-solid fa-bullhorn"></i> ข่าวสารประชาสัมพันธ์</div>
+                        
+                        <div class="notice"></div>
                     </div>
                 </div>
             </div>
@@ -89,11 +90,23 @@
     <script src="controller/main.js"></script>
     <script>
         $(document).ready(function() {
+            getNotice()
             $(".list-group-item").click(function() {
                 $(".list-group-item").removeClass("active");
                 $(this).addClass("active");
             });
         });
+
+        function getNotice() {
+            $.ajax({
+                type: "POST",
+                url: "/TEST/view/notice.php",
+                dataType: "html",
+                success: function(res) {
+                    $(".notice").html(res);
+                },
+            });
+        }
     </script>
 </body>
 

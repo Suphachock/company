@@ -1,6 +1,3 @@
-$(document).ready(function () {
-  manageWeb();
-});
 // ----------------------- ส่วนของจัดการเว็บทั้งหมด -------------------------
 function manageWeb() {
   $.ajax({
@@ -382,7 +379,6 @@ function edit_event_category(id) {
   });
 }
 
-
 // ----------------------- ส่วนของการจัดการสมาชิก -------------------------
 function manageUser() {
   $.ajax({
@@ -491,6 +487,44 @@ function edit_department(id) {
     success: function (res) {
       $(".modal_edit_dept").html(res);
       $("#md_edit_department").modal("show");
+    },
+  });
+}
+
+// ----------------------- ส่วนของการจัดการข่าวสาร -------------------------
+function manageNotice() {
+  $.ajax({
+    type: "POST",
+    url: "/TEST/view/manage_notice.php",
+    dataType: "html",
+    success: function (res) {
+      $(".body_content").html(res);
+    },
+  });
+}
+function show_md_notice_add() {
+  $.ajax({
+    type: "POST",
+    url: "../view/md_add_notice.php",
+    dataType: "html",
+    success: function (res) {
+      $(".modal_show").html(res);
+      $("#md_add_notice").modal("show");
+    },
+  });
+}
+function delete_notice(id) {
+  $.ajax({
+    type: "POST",
+    url: "../model/delete_notice.php",
+    data: { id },
+    success: function (res) {
+      let response = JSON.parse(res);
+      if (response.status === "success") {
+        manageNotice();
+      } else {
+        alert(response.message);
+      }
     },
   });
 }
