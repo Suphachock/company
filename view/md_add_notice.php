@@ -28,7 +28,7 @@
                             <label for="notice_detail" class="form-label">วันที่ประกาศ</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" id="datepicker" name="notice_date" class="form-control" required>
+                            <input type="text" id="datepicker" name="notice_date" class="form-control" placeholder="Ex. 2024-01-01" required>
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -36,7 +36,7 @@
                             <label for="notice_image" class="form-label">รูปภาพ</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="file" name="notice_image[]" class="form-control" accept="image/*" onchange="previewImage(event)" multiple>
+                            <input type="file" name="notice_image[]" class="form-control" accept="image/*"  multiple>
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,19 @@
 </div>
 <script>
     $(document).ready(function() {
-        $(function() {
-            $("#datepicker").datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
+        $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        // Validate date format when the input changes
+        $("#datepicker").on('change', function() {
+            var date = $(this).val();
+            var isValidFormat = /^\d{4}-\d{2}-\d{2}$/.test(date); // Regular expression to check the format
+
+            if (!isValidFormat) {
+                alert("รูปแบบวันที่ไม่ถูกต้อง : 2024-01-01");
+                $(this).val('');
+            }
         });
         $('#add_notice_form').on('submit', function(event) {
             event.preventDefault();

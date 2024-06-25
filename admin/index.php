@@ -96,7 +96,7 @@ $conn->close();
                         <a class="nav-link active fs-5" aria-current="page" href="index.php"><i class="fa-solid fa-house"></i> หน้าหลัก</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fs-5" aria-current="page" href="#"><i class="fa-solid fa-user"></i> สวัสดีคุณ <?= explode(' ', $row['fullname'])[0] ?></a>
+                        <a class="nav-link active fs-5" aria-current="page" href="#"><i class="fa-solid fa-user"></i> สวัสดี <?= explode(' ', $row['fullname'])[0] ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fs-5" aria-current="page" href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ</a>
@@ -140,11 +140,6 @@ $conn->close();
             </div>
             <div class="col-lg-10 col-md-9 col-sm-8">
                 <div class="card">
-                    <!-- <div class="card-header fs-4 fw-bold">
-                        <marquee>
-                            ***คำขวัญบริษัท*** :: ลดต้นทุน ลดค่าใช้จ่าย เป็นกำไรของบริษัท เป็นโบนัสของพนักงาน
-                        </marquee>
-                    </div> -->
                     <div class="card-body body_content" style="overflow: auto; height: 80vh;">
                     </div>
                     <div class="modal_show"></div>
@@ -159,6 +154,7 @@ $conn->close();
     <script src="../controller/admin.js"></script>
     <script>
         $(document).ready(function() {
+            // alert($(".list-group-item:first").text());
             $(".list-group-item").click(function() {
                 $(".list-group-item").removeClass("active");
                 $(this).addClass("active");

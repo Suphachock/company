@@ -35,16 +35,19 @@ $current_page_images = array_slice($images, $start_from, $images_per_page);
 
 <div class="row align-items-center mb-3">
     <?php
-    foreach ($current_page_images as $image) { ?>
-        <div class="col-2 mb-3 position-relative">
-            <!-- ปุ่มลบรูปภาพ -->
-            <button type="button" class="close-btn" onclick="delImage(this, '<?= $event_id ?>')">X</button>
-            <!-- รูปภาพ -->
-            <img data-enlargable src="../img/event/<?= htmlspecialchars($image) ?>" style="width: 100%; height: 100px; object-fit: cover;" />
-        </div>
+    foreach ($current_page_images as $image) {
+        if ($image) { ?>
+            <div class="col-2 mb-3 position-relative">
+                <!-- ปุ่มลบรูปภาพ -->
+                <button type="button" class="close-btn" onclick="delImage(this, '<?= $event_id ?>')">X</button>
+                <!-- รูปภาพ -->
+                <img data-enlargable src="../img/event/<?= htmlspecialchars($image) ?>" style="width: 100%; height: 100px; object-fit: cover;" />
+            </div>
     <?php }
+    }
     ?>
 </div>
+
 
 <!-- Pagination -->
 <nav aria-label="Page navigation example">
@@ -92,5 +95,4 @@ $current_page_images = array_slice($images, $start_from, $images_per_page);
             }
         });
     }
-
 </script>

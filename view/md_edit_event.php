@@ -87,6 +87,35 @@ $conn->close();
 <script>
     $(document).ready(function() {
         img_for_delete();
+        $('#edit_event').on('submit', function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+            $(".loading").show();
+            $('button[type="submit"]').prop('disabled', true);
+            $.ajax({
+                url: '../model/edit_event.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    let response = JSON.parse(res);
+                    $(".loading").hide();
+                    $('button[type="submit"]').prop('disabled', false);
+                    if (response.status === "success") {
+                        $("#md_edit_event").modal('hide');
+                        manageEvent();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function() {
+                    $(".loading").hide();
+                    $('button[type="submit"]').prop('disabled', false);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
     });
 
     function img_for_delete() {

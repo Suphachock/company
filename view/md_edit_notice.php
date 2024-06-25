@@ -80,10 +80,16 @@ $row = $result->fetch_assoc();
 
 <script>
     $(document).ready(function() {
-        $("#datepicker").datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
+        // Validate date format when the input changes
+        $("#datepicker").on('change', function() {
+            var date = $(this).val();
+            var isValidFormat = /^\d{4}-\d{2}-\d{2}$/.test(date); // Regular expression to check the format
 
+            if (!isValidFormat) {
+                alert("รูปแบบวันที่ไม่ถูกต้อง : 2024-01-01");
+                $(this).val('');
+            }
+        });
         $('#edit_notice_form').on('submit', function(event) {
             event.preventDefault();
             let formData = new FormData(this);
@@ -105,6 +111,7 @@ $row = $result->fetch_assoc();
             });
         });
     });
+
     function delImageNotice(button, id) {
         const hiddenImagesNotice = []; // เก็บ URL ของรูปที่ถูกปิด
         alert("Are you sure?")

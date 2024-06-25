@@ -11,13 +11,16 @@ $stmt_select->bind_param("i", $id);
 $stmt_select->execute();
 $result = $stmt_select->get_result();
 
+
 // ลบไฟล์รูปภาพหากมีอยู่
 if ($row = $result->fetch_assoc()) {
-    $img_paths = explode(',', $row['img']); // แยกชื่อไฟล์รูปภาพออกตามจุลภาค
-    foreach ($img_paths as $img) {
-        $img_path = $current_img_path . $img;
-        if (file_exists($img_path)) {
-            unlink($img_path);
+    if (isset($row['img']) && !empty($row['img'])) {
+        $img_paths = explode(',', $row['img']); // แยกชื่อไฟล์รูปภาพออกตามจุลภาค
+        foreach ($img_paths as $img) {
+            $img_path = $current_img_path . $img;
+            if (file_exists($img_path)) {
+                unlink($img_path);
+            }
         }
     }
 }

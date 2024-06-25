@@ -30,7 +30,7 @@ if ($event_img['size'][0] > 0) {
     $stmt->fetch();
     $stmt->close();
 
-    $current_images_array = explode(',', $current_images);
+    $current_images_array = $current_images === '' ? [] : explode(',', $current_images);
     $image_names = $current_images_array;
 
     // Iterate through each uploaded image file

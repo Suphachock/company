@@ -34,8 +34,9 @@ $result = mysqli_query($conn, $sql);
             if ($result) {
                 $counter = 1; // Initialize a counter for the row numbers
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $img_count = count(explode(',', $row['event_img'])); // Count images
-                    ?>
+                    // Check if 'event_img' is set and not empty, then count the images
+                    $img_count = isset($row['event_img']) && $row['event_img'] !== '' ? count(explode(',', $row['event_img'])) : 0;
+            ?>
                     <tr>
                         <td><?= htmlspecialchars($counter) ?></td>
                         <td><?= htmlspecialchars($row['event_title']) ?></td>
