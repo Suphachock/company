@@ -57,6 +57,12 @@ $result = mysqli_query($conn, $sql);
                         </div>
                         <div class="col-md-9">
                             <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="notice" style="transform: scale(1.5);" checked>
+                                <label class="form-check-label" for="companyWebsite">
+                                    ข่าวสาร
+                                </label>
+                            </div>
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="permission[]" value="website" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="companyWebsite">
                                     รวมเว็บไซต์บริษัท
