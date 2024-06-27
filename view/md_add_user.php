@@ -63,7 +63,7 @@ $result = mysqli_query($conn, $sql);
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="permission[]" value="vdeo" style="transform: scale(1.5);" checked>
+                                <input class="form-check-input" type="checkbox" name="permission[]" value="video" style="transform: scale(1.5);" checked>
                                 <label class="form-check-label" for="introVideo">
                                     วิดิโอแนะนำ
                                 </label>
